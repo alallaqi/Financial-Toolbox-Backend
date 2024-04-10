@@ -29,17 +29,55 @@ node database.js
 
 ## API Endpoints
 
+# Financial Toolbox Backend API
+
+This backend API supports the Financial Toolbox application, enabling users to register, log in, and perform various financial calculations.
+
+## Features
+
+- User registration
+- User login
+
+## API Endpoints
+
+### User Registration
+
+- **URL**: `/api/users/register`
+- **Method**: `POST`
+- **Body Parameters**:
+    - `username`: New user's username.
+    - `email`: New user's email address.
+    - `password`: New user's password.
+
 ### User Login
 
 - **URL**: `/api/users/login`
 - **Method**: `POST`
 - **Body Parameters**:
-  - `email`: The user's email.
-  - `password`: The user's password.
-- **Success Response**:
-  - **Code**: 200
-  - **Content**: `{ message: 'Login successful', user: { ... } }`
-- **Error Response**:
-  - **Code**: 404 NOT FOUND
-  - **Content**: `{ message: 'User not found' }`
+    - `email`: User's email address.
+    - `password`: User's password.
 
+...
+
+## Testing with Postman
+
+To test the user registration and login features:
+
+1. **User Registration**
+   - Open Postman and create a new request.
+   - Set the request type to `POST` and the URL to `http://localhost:3000/api/users/register`.
+   - In the "Body" tab, select "raw" and "JSON (application/json)".
+   - Enter the following sample data:
+    ```json
+    {
+        "username": "newuser",
+        "email": "newuser@example.com",
+        "password": "password123"
+    }
+    ```
+   - Send the request and observe the response.
+
+2. **User Login** (Assuming you've implemented the logic)
+   - Change the URL to `http://localhost:3000/api/users/login`.
+   - Use the same email and password as the registration step.
+   - Send the request and observe the response.

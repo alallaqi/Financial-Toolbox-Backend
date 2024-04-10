@@ -1,20 +1,11 @@
 const express = require('express');
-const db = require('../db/database');
+const userController = require('../controllers/userController'); // Adjust the path as needed
 const router = express.Router();
 
-// User registration
-router.post('/register', (req, res) => {
-  const { username, email, password } = req.body;
-  // Here you would normally hash the password before storing it
-  const query = `INSERT INTO users (username, email, password, date_of_registration) VALUES (?, ?, ?, ?)`;
-  
-  db.run(query, [username, email, password, new Date().toISOString()], function(err) {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({ message: 'User registered successfully', id: this.lastID });
-  });
-});
+// Register a new user
+router.post('/register', userController.register);
+
+// User login
+router.post('/login', userController.login);
 
 module.exports = router;
