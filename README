@@ -1,0 +1,22 @@
+# Financial Toolbox Backend
+
+This project is the backend for a financial toolbox application.
+
+## Getting Started
+
+To run this project, you'll need Node.js installed on your local machine.
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies
+3. Start the server
+
+
+## API Documentation
+
+(TODO: Provide detailed API documentation)
+
+## Contributing
+
+Please make sure to update tests as appropriate.
