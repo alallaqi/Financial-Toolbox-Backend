@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+
+const db = require('./database');
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -13,3 +15,6 @@ app.listen(PORT, () => {
 });
 
 module.exports = app; // Export for testing
+
+
+  

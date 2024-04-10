@@ -20,3 +20,11 @@ To run this project, you'll need Node.js installed on your local machine.
 ## Contributing
 
 Please make sure to update tests as appropriate.
+
+## Database Setup
+
+The application uses SQLite for the database. To set up the database, run the `database.js` script:
+
+```bash
+node database.js
+
