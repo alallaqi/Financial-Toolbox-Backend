@@ -1,11 +1,15 @@
 const express = require('express');
-const userController = require('../controllers/userController'); // Adjust the path as needed
+const userController = require('../controllers/userController');
+const authenticateToken = require('../middleware/authenticationToken');
+
 const router = express.Router();
 
-// Register a new user
 router.post('/register', userController.register);
-
-// User login
 router.post('/login', userController.login);
+
+// Example of a protected route
+router.get('/session', authenticateToken, (req, res) => {
+    res.json({ message: 'Welcome to the restricted area', user: req.user });
+});
 
 module.exports = router;
