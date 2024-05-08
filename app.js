@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();  // Load environment variables
 const userRoutes = require('./routes/userRoutes');
+const calculationRoutes = require('./routes/calculationRoutes'); // Make sure this path is correct
 
 const app = express();
 
@@ -13,7 +14,10 @@ app.use(cors({
 
 app.use(express.json());
 
+// Use routes for user-related endpoints
 app.use('/api/users', userRoutes);
+// Use routes for calculation-related endpoints
+app.use('/api/calculations', calculationRoutes); // Add this line
 
 app.get('/', (req, res) => {
     res.send('Financial Toolbox Backend is running!');

@@ -24,7 +24,18 @@ let db = new sqlite3.Database(dbPath, (err) => {
           console.log('Table `users` created.');
           // Here you can insert default users if necessary
         }
-      });  
+      }); 
+      db.serialize(() => {
+        db.run(`ALTER TABLE calculations ADD COLUMN duration TEXT;`, (err) => {
+          if (err) console.error("Error adding duration column:", err.message);
+          else console.log("Duration column added successfully.");
+        });
+      
+        db.run(`ALTER TABLE calculations ADD COLUMN error TEXT;`, (err) => {
+          if (err) console.error("Error adding error column:", err.message);
+          else console.log("Error column added successfully.");
+        });
+      });
 
     db.run(`CREATE TABLE calculations (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
